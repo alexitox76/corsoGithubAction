@@ -1,0 +1,26 @@
+name: second
+
+on: push
+
+jobs:
+    ubuntu:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Step One
+          run: date
+    windows:
+        runs-on: windows-latest
+        steps:
+        - name: Step One
+          run: Get-Date
+    macos:
+        runs-on: macos-latest
+        steps:
+        - name: Step One
+          run: date
+    Depends:
+        needs: [ubuntu, windows, macos]
+        runs-on: ubuntu-latest
+        steps:
+        - name: Step One
+          run: date
